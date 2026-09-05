@@ -9,6 +9,7 @@ services:
       - JWT_SECRET_KEY=${JWT_SECRET_KEY:-default-secret-change-me}
       - DOCS_USERNAME=${DOCS_USERNAME:-admin}
       - DOCS_PASSWORD=${DOCS_PASSWORD:-admin}
+      - ARCA_ENV=${ARCA_ENV:-homologation}
     volumes:
       - ./host_certs:/app/src/shared/app_certs:ro
       - ./host_xml:/app/src/shared/app_xml_files

@@ -1,5 +1,7 @@
 import httpx
 
+from src.shared.utils.arca_ssl import build_arca_ssl_context
+
 
 class WSFEClientManager:
     _instance = None
@@ -7,7 +9,7 @@ class WSFEClientManager:
     def __new__(cls):
         if cls._instance is None:
             cls._instance = super().__new__(cls)
-            cls._instance._client = httpx.AsyncClient()
+            cls._instance._client = httpx.AsyncClient(verify=build_arca_ssl_context())
         return cls._instance
 
     def get_client(self):

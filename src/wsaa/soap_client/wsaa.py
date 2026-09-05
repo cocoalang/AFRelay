@@ -5,6 +5,7 @@ import httpx
 from tenacity import (before_sleep_log, retry, retry_if_exception_type,
                       stop_after_attempt, wait_fixed)
 
+from src.shared.utils.arca_ssl import build_arca_ssl_context
 from src.shared.utils.logger import logger
 from src.shared.utils.response_management import build_error_response
 from src.wsaa.soap_client.url_manager import get_wsaa_url
@@ -19,7 +20,7 @@ from src.wsaa.soap_client.url_manager import get_wsaa_url
 async def consult_afip_wsaa(xml: str, client=None) -> dict:
 
     if client is None:
-        client = httpx.AsyncClient(timeout=30.0)
+        client = httpx.AsyncClient(timeout=30.0, verify=build_arca_ssl_context())
 
     url = get_wsaa_url()
     headers = {

@@ -7,6 +7,10 @@ service/app_certs/*
 !host_certs/.gitkeep
 !host_certs/README.md
 
+# Certificados de homologacion, guardados aparte al pasar a produccion
+# (2026-08-24). Contiene PrivateKey.key: NO se sube, este repo es publico.
+/host_certs_homologacion/
+
 # Ignore venv
 /venv
 
