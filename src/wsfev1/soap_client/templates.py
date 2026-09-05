@@ -59,12 +59,12 @@ xmlns:ar="http://ar.gov.afip.dif.FEV1/">
 
                         {% if item.CbtesAsoc %}
                         <ar:CbtesAsoc>
-                            {% for i in item.CbtesAsoc %}
+                            {% for i in item.CbtesAsoc.CbteAsoc %}
                             <ar:CbteAsoc>
                                 <ar:Tipo>{{ i.Tipo }}</ar:Tipo>
                                 <ar:PtoVta>{{ i.PtoVta }}</ar:PtoVta>
                                 <ar:Nro>{{ i.Nro }}</ar:Nro>
-                                <ar:Cuit>{{ i.Cuit }}</ar:Cuit>
+                                {% if i.Cuit %}<ar:Cuit>{{ i.Cuit }}</ar:Cuit>{% endif %}
                                 <ar:CbteFch>{{ i.CbteFch }}</ar:CbteFch>
                             </ar:CbteAsoc>
                             {% endfor %}
@@ -251,12 +251,12 @@ xmlns:ar="http://ar.gov.afip.dif.FEV1/">
 
                         {% if item.CbtesAsoc %}
                         <ar:CbtesAsoc>
-                            {% for i in item.CbtesAsoc %}
+                            {% for i in item.CbtesAsoc.CbteAsoc %}
                             <ar:CbteAsoc>
                                 <ar:Tipo>{{ i.Tipo }}</ar:Tipo>
                                 <ar:PtoVta>{{ i.PtoVta }}</ar:PtoVta>
                                 <ar:Nro>{{ i.Nro }}</ar:Nro>
-                                <ar:Cuit>{{ i.Cuit }}</ar:Cuit>
+                                {% if i.Cuit %}<ar:Cuit>{{ i.Cuit }}</ar:Cuit>{% endif %}
                                 <ar:CbteFch>{{ i.CbteFch }}</ar:CbteFch>
                             </ar:CbteAsoc>
                             {% endfor %}
